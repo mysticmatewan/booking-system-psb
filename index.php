@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Proceed with the booking process if the user is logged in
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli('localhost', 'root', '', 'booking-system-psb');
+    $conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
 
     // Insert booking details into the database
-    $sql = "INSERT INTO bookings (user_id, facility, date, time, phone) 
+    $sql = "INSERT INTO booking (user_id, facility, date, time, phone) 
             VALUES ('$user_id', '$facility', '$date', '$time', '$phone')";
 
     if ($conn->query($sql) === TRUE) {
@@ -83,24 +83,34 @@ if (isset($_SESSION['user_id'])) {
     <br>
 
     <form method="POST" action="index.php">
+	    <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+		<label for="matrix">Matrix No.</label>
+        <input type="text" id="matrix" name="matrix" placeholder="Enter your matrix no." required>
+		<br><br>
         <label for="facility">Select Facility</label>
         <select name="facility" required>
             <option value="">Select a facility</option>
-            <option value="Room 1">Carrel Room</option>
-            <option value="Room 2">Auditorium 1</option>
-            <option value="Conference Hall">Auditorium 2</option>
+            <option value="Carrel Room">Carrel Room</option>
+            <option value="Auditorium 1">Auditorium 1</option>
+            <option value="Auditorium 2">Auditorium 2</option>
         </select>
 
         <label for="date">Date</label>
         <input type="date" name="date" required>
-
+        
+        <br><br>		
+		
         <label for="time">Time</label>
         <input type="time" name="time" required>
-
+        
+		<br><br>
+		
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
         <button type="submit" class="btn">Book Now</button>
+		<br>
     </form>
 
     <a href="view_bookings.php" class="btn">View Your Bookings</a>

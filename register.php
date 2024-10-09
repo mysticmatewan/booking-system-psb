@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-$conn = new mysqli('localhost', 'root', '', 'booking-system-psb');
+$conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
 
 // Check connection
 if ($conn->connect_error) {

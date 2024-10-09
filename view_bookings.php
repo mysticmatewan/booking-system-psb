@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$conn = new mysqli('localhost', 'root', '', 'booking-system-psb');
+$conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
 
 // Check connection
 if ($conn->connect_error) {
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 }
 
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM bookings WHERE user_id='$user_id' ORDER BY date DESC, time DESC";
+$sql = "SELECT * FROM booking WHERE user_id='$user_id' ORDER BY date DESC, time DESC";
 $result = $conn->query($sql);
 
 // Check if the user is logged in
@@ -60,35 +60,33 @@ if (isset($_SESSION['user_id'])) {
     <div class="book-container">
         <h2>Your Bookings</h2>
 
-        <?php
-        if ($result->num_rows > 0) {
-            echo "<table>
-                    <thead>
-                        <tr>
-                            <th>Facility</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Phone</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>";
-            
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>{$row['facility']}</td>
-                        <td>{$row['date']}</td>
-                        <td>{$row['time']}</td>
-                        <td>{$row['phone']}</td>
-                        <td><span class='btn'>Confirmed</span></td>
-                    </tr>";
-            }
-            
-            echo "</tbody></table>";
-        } else {
-            echo "<p>No bookings found. <a href='index.php'>Book a facility now</a>.</p>";
-        }
-        ?>
+<?php
+if ($result->num_rows > 0) {
+    echo "<table>
+            <thead>
+                <tr>
+                    <th>Facility</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>";
+
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>{$row['facility']}</td>
+                <td>{$row['date']}</td>
+                <td>{$row['time']}</td>
+                <td>{$row['phone']}</td>
+            </tr>";
+    }
+
+    echo "</tbody></table>";
+} else {
+    echo "<br><p>No bookings found</p><br><a href='index.php'>Book a facility now</a>";
+}
+?>
         
         <a href="index.php" class="btn">Back to Booking</a>
     </div>

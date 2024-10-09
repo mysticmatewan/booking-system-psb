@@ -1,39 +1,22 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    // Redirect to booking page if already logged in
-    header("Location: index.php");
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
     exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
-    
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+$conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
 
-    $sql = "SELECT * FROM users WHERE email='$email'";
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            header("Location: index.php"); // Redirect to booking page after login
-        } else {
-            $error = "Invalid email or password.";
-        }
-    } else {
-        $error = "No user found with that email.";
-    }
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM booking WHERE user_id='$user_id' ORDER BY date DESC, time DESC";
+$result = $conn->query($sql);
 
 // Check if the user is logged in
 if (isset($_SESSION['user_id'])) {
@@ -52,11 +35,11 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PSB UUM</title>
+    <title>Your Bookings - PSB UUM</title>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
     <style>
-        /* LOGIN DULU */
+        /* KALU ADA, ADALAH */
     </style>
 </head>
 <body>
@@ -74,20 +57,40 @@ if (isset($_SESSION['user_id'])) {
     </div>
 </nav>
 <br>
-    <div class="login-container">
-        <h2>Login to Your Account</h2>
+    <div class="book-container">
+        <h2>Your Bookings</h2>
 
-        <?php if (isset($error)): ?>
-            <p class="error-message"><?php echo $error; ?></p>
-        <?php endif; ?>
+<?php
+if ($result->num_rows > 0) {
+    echo "<table>
+            <thead>
+                <tr>
+                    <th>Facility</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>";
 
-        <form method="POST" action="login.php">
-            <input type="email" class="input-field" name="email" placeholder="Enter your email" required>
-            <input type="password" class="input-field" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="btn">Login</button>
-        </form>
-<br>
-        <p class="register-link">Don't have an account? <a href="register.php">Create one here</a></p>
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>{$row['facility']}</td>
+                <td>{$row['date']}</td>
+                <td>{$row['time']}</td>
+                <td>{$row['phone']}</td>
+                <td><span class='btn'>Confirmed</span></td>
+            </tr>";
+    }
+
+    echo "</tbody></table>";
+} else {
+    echo "<br><p>No bookings found</p><br><a href='index.php'>Book a facility now</a>";
+}
+?>
+        
+        <a href="index.php" class="btn">Back to Booking</a>
     </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer class="footer">
@@ -103,3 +106,7 @@ if (isset($_SESSION['user_id'])) {
 </footer>
 </body>
 </html>
+
+<?php
+$conn->close();
+?>
