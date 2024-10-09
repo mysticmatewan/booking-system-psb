@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </nav>
 <br>
-    <div class="container">
+    <div class="register-container">
         <h2>Create an Account</h2>
         <form method="post" action="register.php">
             <label for="username">Username</label>

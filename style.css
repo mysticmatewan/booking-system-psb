@@ -59,6 +59,16 @@ button:hover, a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.register-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Forms */
 input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], select, textarea {
     font-family: 'Josefin Slab', serif;
