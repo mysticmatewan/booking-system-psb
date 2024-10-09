@@ -110,7 +110,6 @@ if (isset($_SESSION['user_id'])) {
         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
         <button type="submit" class="btn">Book Now</button>
-		<br>
     </form>
 
     <a href="view_bookings.php" class="btn">View Your Bookings</a>
