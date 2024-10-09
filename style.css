@@ -1,0 +1,657 @@
+/* General styles */
+body {
+    font-family: 'Josefin Slab', serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Josefin Slab', serif;
+    color: #f0a500; /* Yellow */
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p, td {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Buttons and links */
+button, a {
+    background-color: #f0a500; /* Yellow */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, a:hover {
+    background-color: #0073e6; /* Blue */
+}
+
+.login-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Forms */
+input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"], select, textarea {
+    font-family: 'Josefin Slab', serif;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+}
+
+input[type="submit"]:hover {
+    background-color: #0073e6; /* Blue */
+}
+
+textarea {
+    resize: vertical;
+    height: 100px; /* Default height for textareas */
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #f0a500; /* Yellow */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Josefin Slab', serif; /* Apply Josefin Slab font */
+    font-size: 1.2rem;
+    padding: 14px 28px;
+    cursor: pointer;
+    width: auto;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0073e6; /* Blue */
+}
+
+/* Button with class .btn */
+.btn {
+    font-family: 'Josefin Slab', serif; /* Apply Josefin Slab font */
+    background-color: #f0a500; /* Yellow */
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Ensure it behaves like a button */
+}
+
+.btn:hover {
+    background-color: #0073e6; /* Blue */
+}
+
+input[type="tel"]::placeholder {
+    color: #888; /* Light grey color for placeholder */
+    font-family: 'Josefin Slab', serif;
+    font-size: 1rem;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f0a500;
+    color: white;
+}
+
+.loader {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f0a500;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    
+    /* Center the loader using Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Optional: Absolute positioning if you want to center it within a parent container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Keyframes for spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Responsive styles */
+
+/* Mobile devices (max-width: 600px) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    h2, h3 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .booking-table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    button, a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .loader {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Tablet devices (max-width: 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .container {
+        padding: 20px;
+        width: 80%;
+    }
+
+    .booking-table {
+        font-size: 1.1rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    button, a {
+        font-size: 1.1rem;
+        padding: 10px 18px;
+    }
+
+    .loader {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Desktop devices (min-width: 1025px) */
+@media (min-width: 1025px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 30px;
+        width: 70%;
+    }
+
+    .booking-table {
+        font-size: 1.2rem;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    button, a {
+        font-size: 1.2rem;
+        padding: 12px 24px;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Footer container styling */
+.footer {
+    display: grid; /* Use Grid Layout */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 10px; /* Space between columns */
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text colour */
+    padding: 20px;
+    text-align: center; /* Center the text in each column */
+    font-family: 'Josefin Slab', serif; /* Apply Josefin Slab font */
+}
+
+/* Individual footer column */
+.footer-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem; /* Adjust font size */
+}
+
+/* Styling for the copyright and powered text */
+.footer p {
+    margin: 5px 0; 
+    color: #f4f4f4;
+}
+
+/* Add colour to the sections */
+.footer-column:nth-child(1) {
+    color: #f0a500; /* Yellow for the first column (Copyright) */
+}
+
+.footer-column:nth-child(2) {
+    color: #ffffff; /* White for the second column (All Rights Reserved) */
+}
+
+.footer-column:nth-child(3) {
+    color: #0073e6; /* Blue for the third column (Powered by Rimalibs) */
+}
+
+/* Responsive styles for smaller screens (mobile and tablet) */
+@media (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr; /* Stack columns on top of each other */
+    }
+    .footer-column p {
+        border-bottom: none; /* Remove bottom border in mobile view */
+    }
+}
+
+/* Cancel button for footer links with blue and yellow theme */
+.cancel-btn {
+    background-color: #0073e6; /* Blue background */
+    color: #f0a500; /* Yellow text */
+    padding: 0px 1px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for cancel button */
+.cancel-btn:hover {
+    background-color: #f0a500; /* Yellow background on hover */
+    color: #0073e6; /* Blue text on hover */
+}
+
+/* Disabled cancel button (inactive state) */
+.cancel-btn.disabled {
+    background-color: #d3d3d3; /* Light Grey */
+    color: #888; /* Grey text */
+    cursor: not-allowed; /* Not allowed cursor to show disabled state */
+    pointer-events: none; /* Disables any interaction with the link */
+    opacity: 0.6; /* Make it look inactive */
+}
+
+/* Hover effect for the disabled cancel button */
+.cancel-btn.disabled:hover {
+    background-color: #d3d3d3; /* Keep the same color when hovered */
+    cursor: not-allowed; /* Disable hover effect */
+}
+
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Banner styling */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Set initial height for desktop */
+    overflow: hidden; /* Hide overflow to maintain clean design */
+}
+
+/* Banner image styling */
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the area without stretching */
+    object-position: center; /* Keep image centered */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Banner content styling */
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center content */
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+}
+
+.banner h1 {
+    font-family: 'Josefin Slab', serif; /* Elegant font */
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.btn-banner {
+    padding: 10px 20px;
+    background-color: #f0a500; /* Yellow */
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-banner:hover {
+    background-color: #0073e6; /* Blue */
+}
+
+/* Responsive Styles */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .banner {
+        height: 350px; /* Slightly reduced height for tablet */
+    }
+
+    .banner h1 {
+        font-size: 2.5rem; /* Slightly smaller font size */
+    }
+
+    .banner p {
+        font-size: 1.1rem; /* Smaller font size for tablets */
+    }
+
+    .btn-banner {
+        font-size: 1rem; /* Adjust button size */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .banner {
+        height: 300px; /* Further reduced height for mobile */
+    }
+
+    .banner h1 {
+        font-size: 2rem; /* Smaller heading for mobile */
+    }
+
+    .banner p {
+        font-size: 1rem; /* Adjust paragraph text */
+    }
+
+    .btn-banner {
+        padding: 8px 15px; /* Smaller button for mobile */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}
+
+/* Styling for the blue font on the paragraph inside the banner */
+.banner-description {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #0073e6; /* Blue color for the paragraph text */
+    padding: 10px 20px; /* Add padding inside the border */
+    border: 2px solid #0073e6; /* Blue border */
+    border-radius: 8px; /* Rounded corners */
+    display: inline-block; /* Allow the paragraph to adjust to the size of its content */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Adds a slight white background for better readability */
+}
+
+/* Styling for the full-width background on h1 */
+.full-width-header {
+    background-color: #0073e6; /* Blue background */
+    color: white;
+    padding: 20px 0; /* Padding for the text */
+    text-align: center; /* Center align text */
+    font-family: 'Josefin Slab', serif; /* Elegant font */
+    font-size: 3rem;
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Ensure it spans the full width */
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: If you want to add a shadow to the text for better contrast */
+.full-width-header {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #0073e6; /* Blue background */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* Logo styling */
+.navbar .logo a {
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-family: 'Josefin Slab', serif;
+}
+
+/* Media query for smaller screens (tablets and mobiles) */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center; /* Centre the logo */
+    }
+
+    .navbar .logo {
+        position: absolute; /* Make sure the logo remains in the centre */
+        left: 50%;
+        transform: translateX(-50%); /* Ensure the logo is exactly centred */
+    }
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex; /* Ensures links are in a row on PC */
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Dropdown menu styling */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f0a500; /* Yellow background */
+    min-width: 160px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown .dropdown-content a {
+    padding: 12px 16px;
+    color: white;
+    text-align: left;
+}
+
+.dropdown .dropdown-content a:hover {
+    background-color: #0073e6; /* Hover effect for dropdown items */
+}
+
+/* Hamburger icon for mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 4px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/* Mobile menu styling */
+.nav-links {
+    display: none; /* Default hidden on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #0073e6; /* Blue background for mobile */
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.nav-links.active {
+    display: flex; /* Display the menu when active */
+}
+
+.nav-links li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links a {
+    padding: 15px 0;
+    font-size: 1.5rem;
+}
+
+/* Responsive Media Query */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger icon on mobile */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #0073e6; /* Blue background for mobile */
+        width: 100%;
+        padding: 20px 0;
+        border-radius: 5px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 15px 0;
+        font-size: 1.5rem;
+    }
+
+    .dropdown-content {
+        position: static;
+        background-color: #f0a500; /* Yellow background for dropdown items */
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .dropdown .dropdown-content a {
+        padding: 12px;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+		
