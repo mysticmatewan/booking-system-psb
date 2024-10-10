@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PSB UUM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+    <style>
+        /* LOGIN DULU */
+    </style>
+</head>
+<body>
+<section class="banner">
+    <img src="https://wallpapercat.com/w/full/8/f/4/914063-1920x1080-desktop-full-hd-library-wallpaper-photo.jpg" alt="Banner Image" class="banner-img">
+    <div class="banner-content">
+        <h1>Welcome to Perpustakaan Sultanah Bahiyah UUM</h1>
+        <p class="banner-description">Your gateway to knowledge and learning</p>
+        <a href="https://library.uum.edu.my/?" class="btn-banner">Learn More</a>
+    </div>
+</section>
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.php" class="cancel-btn">Booking</a>
+    </div>
+</nav>
 <?php
 session_start();
 
@@ -46,33 +72,6 @@ if (isset($_SESSION['user_id'])) {
     echo "<a href='login.php'>Login Page</a>";
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PSB UUM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-    <style>
-        /* LOGIN DULU */
-    </style>
-</head>
-<body>
-<section class="banner">
-    <img src="https://wallpapercat.com/w/full/8/f/4/914063-1920x1080-desktop-full-hd-library-wallpaper-photo.jpg" alt="Banner Image" class="banner-img">
-    <div class="banner-content">
-        <h1>Welcome to Perpustakaan Sultanah Bahiyah UUM</h1>
-        <p class="banner-description">Your gateway to knowledge and learning</p>
-        <a href="https://library.uum.edu.my/?" class="btn-banner">Learn More</a>
-    </div>
-</section>
-<nav class="navbar">
-    <div class="logo">
-        <a href="index.php" class="cancel-btn">Booking</a>
-    </div>
-</nav>
 <br>
     <div class="login-container">
         <h2>Login to Your Account</h2>

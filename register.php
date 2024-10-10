@@ -1,28 +1,3 @@
-<?php
-// Connect to the database
-$conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
-
-    $sql = "INSERT INTO users (username, email, password)
-            VALUES ('$username', '$email', '$password')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "<br><p class='success-message'>Account created successfully! <a href='login.php'>Login here</a></p><br>";
-    } else {
-        echo "<br><p class='error-message'>Error: " . $conn->error . "</p><br>";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +24,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="index.php" class="cancel-btn">Booking</a>
     </div>
 </nav>
+<?php
+// Connect to the database
+$conn = new mysqli('localhost', 'root', '', 'psb-uum-online-booking-system');
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
+
+    $sql = "INSERT INTO users (username, email, password)
+            VALUES ('$username', '$email', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "<br><p class='success-message'>Account created successfully! <a href='login.php'>Login here</a></p><br>";
+    } else {
+        echo "<br><p class='error-message'>Error: " . $conn->error . "</p><br>";
+    }
+}
+?>
 <br>
     <div class="register-container">
         <h2>Create an Account</h2>

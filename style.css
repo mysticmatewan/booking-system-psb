@@ -128,6 +128,26 @@ input[type="submit"]:hover {
     background-color: #0073e6; /* Blue */
 }
 
+/* Link styled as a button */
+.btn-bookings {
+    font-family: 'Josefin Slab', serif;
+    background-color: #0073e6; /* Light blue */
+    color: #f0a500; /* Yellow */
+    padding: 12px 24px;
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer;
+    display: inline-block; /* Button-like behavior */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+}
+
+.btn-bookings:hover {
+    background-color: #f0a500; /* Yellow */
+    color: #fffacd; /* Lighter yellow on hover */
+}
+
 input[type="tel"]::placeholder {
     color: #888; /* Light grey color for placeholder */
     font-family: 'Josefin Slab', serif;

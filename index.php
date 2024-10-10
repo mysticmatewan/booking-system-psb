@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Facility - PSB UUM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+    <style>
+        /* BAN PRAONG ROCKS */
+    </style>
+</head>
+<body>
+<section class="banner">
+    <img src="https://wallpapercat.com/w/full/8/f/4/914063-1920x1080-desktop-full-hd-library-wallpaper-photo.jpg" alt="Banner Image" class="banner-img">
+    <div class="banner-content">
+        <h1>Welcome to Perpustakaan Sultanah Bahiyah UUM</h1>
+        <p class="banner-description">Your gateway to knowledge and learning</p>
+        <a href="https://library.uum.edu.my/?" class="btn-banner">Learn More</a>
+    </div>
+</section>
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.php" class="cancel-btn">Booking</a>
+    </div>
+</nav>
 <?php
 session_start();
 
@@ -45,33 +71,6 @@ if (isset($_SESSION['user_id'])) {
     echo "<a href='login.php'>Login Page</a>";
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Facility - PSB UUM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@300;400;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
-    <style>
-        /* BAN PRAONG ROCKS */
-    </style>
-</head>
-<body>
-<section class="banner">
-    <img src="https://wallpapercat.com/w/full/8/f/4/914063-1920x1080-desktop-full-hd-library-wallpaper-photo.jpg" alt="Banner Image" class="banner-img">
-    <div class="banner-content">
-        <h1>Welcome to Perpustakaan Sultanah Bahiyah UUM</h1>
-        <p class="banner-description">Your gateway to knowledge and learning</p>
-        <a href="https://library.uum.edu.my/?" class="btn-banner">Learn More</a>
-    </div>
-</section>
-<nav class="navbar">
-    <div class="logo">
-        <a href="index.php" class="cancel-btn">Booking</a>
-    </div>
-</nav>
 <br>
     <div class="book-container">
     <h2>Book a Facility</h2>
@@ -109,10 +108,12 @@ if (isset($_SESSION['user_id'])) {
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
+        <br><br>
+
         <button type="submit" class="btn">Book Now</button>
     </form>
-
-    <a href="view_bookings.php" class="btn">View Your Bookings</a>
+    <br><br>
+    <a class="btn-bookings" href="view_bookings.php">View Your Bookings</a>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer class="footer">
